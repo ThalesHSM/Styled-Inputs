@@ -3,12 +3,12 @@ import { shade } from "polished";
 
 interface IInput {
   disabled?: boolean;
-  icon?: any;
   inputSize?: "sm" | "lg";
   shouldShowShadow?: boolean;
   color?: "purple" | "green" | "orange";
   PlaceHolder?: "PlaceHolder" | "Default" | "ERROR";
-  endIcon?: any;
+  rightIcon?: any;
+  leftIcon?: any;
   error?: boolean;
   multiline?: boolean;
   row?: "2" | "3" | "4";
@@ -27,9 +27,15 @@ export const InputDiv = styled.div<IInput>`
   }
 
   ${(props) =>
-    props.endIcon === true &&
+    props.rightIcon &&
     css`
       align-items: flex-end;
+    `}
+
+  ${(props) =>
+    props.leftIcon &&
+    css`
+      align-items: flex-start;
     `}
 `;
 
@@ -72,10 +78,9 @@ export const StyledInput = styled.input<IInput>`
     border-width: 3px;
   }
 
-  padding-right: ${({ endIcon }) => (endIcon ? "40px" : "12px")};
+  padding-right: ${({ rightIcon }) => (rightIcon ? "40px" : "12px")};
 
-  padding-left: ${({ icon, endIcon }) =>
-    icon && endIcon === undefined ? "37px" : "12px"};
+  padding-left: ${({ leftIcon }) => (leftIcon ? "40px" : "12px")};
 
   ${(props) =>
     props.inputSize === "sm"
@@ -106,6 +111,7 @@ export const StyledInput = styled.input<IInput>`
       border-color: #fc2403;
       border-width: 3px;
 
+      margin-top: 37px;
       :focus {
         border-color: #fc2403;
       }

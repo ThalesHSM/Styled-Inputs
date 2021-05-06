@@ -26,9 +26,6 @@ const App: React.FC = () => (
 
       <ComponentDiv>
         <Input error PlaceHolder="ERROR" />
-        <HelperText style={{ color: "#fc2403", marginTop: 5 }}>
-          An error ocurred!
-        </HelperText>
       </ComponentDiv>
     </Div>
 
@@ -83,11 +80,10 @@ const App: React.FC = () => (
     <Div>
       <Text>Input with Icon</Text>
       <Input
-        icon={<AiOutlineGithub style={{ marginLeft: 10, marginTop: 3 }} />}
+        leftIcon={<AiOutlineGithub style={{ marginLeft: 10, marginTop: 3 }} />}
       />
       <Input
-        icon={<AiOutlineCheck style={{ marginRight: 10, marginTop: 3 }} />}
-        endIcon
+        rightIcon={<AiOutlineCheck style={{ marginRight: 10, marginTop: 3 }} />}
       />
     </Div>
 
